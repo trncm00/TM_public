@@ -161,7 +161,61 @@
        
 
 
-    
+    <footer >
+        <div class ="container">
+            <form action="https://formspree.io/f/mjvjeern" method="POST"id="" >
+                <fieldset>
+                    <legend style="color:azure">
+                        Contact Terence Minerbrook
+                    </legend>
+                    
+                    <div class = "form-group">
+                        <label style="color:azure">
+                            Name:<br />
+                            <input type="text" name="name" size="15" maxlength="30" />
+                        </label><br />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color:azure">
+                            Mobile Number:<br />
+                            <input type="tel" name="mobile" /></label><br />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color:azure">
+                            Email Address:
+                        </label><br />
+                        <input type="email" name="email address" size="15" maxlength="60" />
+                      
+                    </div>
+
+                    <div class="form-group">
+<p>
+    <label style="color:azure">
+        Message:
+    </label></br>
+
+    <textarea name="message" cols="50" rows="10">
+                Send me a quick message!
+            </textarea>
+</p>
+
+                    </div>
+                </fieldset>
+                <button type="submit">
+                    SUBMIT
+                </button>
+            </form>
+        </div>
+        
+<div id ="status" >
+    SUCCESS
+</div>
+
+    </footer>
 
   
         
@@ -170,5 +224,77 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        // get the form elements defined in your form HTML above
+
+        var form = document.getElementById("my-form");
+        // var button = document.getElementById("my-form-button");
+        var status = document.getElementById("status");
+
+        // Success and Error functions for after the form is submitted
+
+        function success() {
+            form.reset();
+            status.classList.add("success");
+            status.innerHTML = "Thanks!";
+        }
+
+        function error() {
+            status.classList.add("error");
+            status.innerHTML = "Oops! There was a problem.";
+        }
+
+        // handle the form submission event
+
+        form.addEventListener("submit", function (ev) {
+            ev.preventDefault();
+            var data = new FormData(form);
+            ajax(form.method, form.action, data, success, error);
+        });
+    });
+
+    // helper function for sending an AJAX request
+
+    function ajax(method, url, data, success, error) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
+            if (xhr.status === 200) {
+                success(xhr.response, xhr.responseType);
+            } else {
+                error(xhr.status, xhr.response, xhr.responseType);
+            }
+        };
+        xhr.send(data);
+    }
+
+/*
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+    */
+</script>
+
+
     </body>
 </html>
