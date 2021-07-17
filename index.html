@@ -54,60 +54,8 @@
                     </div>
                 </div>
             </nav> 
-            
-            
+         
 
-                <!-- commented out this navbar till I know what has gone wrong  -->
-                <!-- 
-<div class="navbar navbar-nav navbar-expand-lg bg-dark" >
-       
-<div class="navbar-brand ">
-       
-            
-					<a href="#"> Projects </a>
-			
-					<div class="navbar-text"> X </div>
-            
-           
-					<a href="#"> Home </a>
-        <div class="navbar-text"> X </div>
-            
-            		<a href="#"> Resume </a>
-        <div class="navbar-text"> X </div>
-            
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                </div>
-                </div>
-                </div>
-
-                -->
-   
-                <!--
-                <ul class="navbar-nav mr-auto">
-    
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Web Development Resources
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="https://github.com/trncm00/">My Github</a>
-        <a class="dropdown-item" href="https://www.css-tricks.com/guides">CSS tricks</a>
-          <a class="dropdown-item" href="https://www.css-tricks.com/guides">CSS tricks</a>
-          <a class="dropdown-item" href="https://www.cplusplus.com/">C++ Manual</a>
-        <a class="dropdown-item" href="https://www.javascript.info/">JavaScript Manual</a>
-             <a class="dropdown-item" href="https://developer.mozilla.org/en-US/">MDN Developer Guides</a>
-             <a class="dropdown-item" href="https://web.mit.edu/mprat/Public/web/Terminus/Web/main.html">Terminus, an brilliant way of learning the command line </a>
-            
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-				  </ul> -->
-  
-		
-             
  
         <span class="border-0">
         <div class="jumbotron jumbotron-fluid bg-dark">
@@ -116,6 +64,8 @@
     -->
             <h1 class="display-2" style="text-align:center; color:antiquewhite;"><main>Terence Minerbrook</main></h1>
         
+
+
             <p class='lead text-info bold' style ="text-align:center"><br>
                 Hello, I have competencies with core HTML/CSS/JS and the LAMP stack
                 as well as C++.
@@ -140,7 +90,30 @@
             <br>
             <br>
             <br>
-			
+
+			<!-- numbers api markup -->
+
+                <section>
+                  
+                    <div class="numbers_container">
+                        <h1 class="numbers_container" style='color: rgb(33, 53, 13); text-align:center;'>
+                            <a href="http://www.numbersapi.com/">Numbers API</a><br> with temporary access via cors anywhere</h1>
+                        <form class="number_form" >
+                            <input type="number" placeholder="Enter a number">
+                            <button type="submit_number">
+                                Submit
+                            </button>
+                        </form>
+                        <div class="number-fact">
+                            Enter a number and this API will return an interesting fact!
+                        </div>
+                    </div>
+                </section>
+                <!-- end of numbers api markup  -->
+            <!-- I learned this from WEB CIFA's 30 days of code on youtube-->
+
+
+
 						<div class ="alert alert-info" role="alert">
 				<h1 class="text-danger" > 	  
     <p class="lead"><p class="" style ="text-align:center">
@@ -157,13 +130,12 @@
             <br>
             <br>
 
-			
        
-
+<!-- I learned this from WEB CIFA's 30 days of code on youtube-->
 
     <footer >
         <div class ="container">
-            <form action="https://formspree.io/f/mjvjeern" method="POST"id="" >
+            <form action="https://formspree.io/f/mjvjeern" method="POST" id="" >
                 <fieldset>
                     <legend style="color:azure">
                         Contact Terence Minerbrook
@@ -221,79 +193,10 @@
         
         <!-- Optional JavaScript -->
     
-
+        <script src="./main.js"></script>"
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    
-<script>
-    window.addEventListener("DOMContentLoaded", function () {
-        // get the form elements defined in your form HTML above
 
-        var form = document.getElementById("my-form");
-        // var button = document.getElementById("my-form-button");
-        var status = document.getElementById("status");
-
-        // Success and Error functions for after the form is submitted
-
-        function success() {
-            form.reset();
-            status.classList.add("success");
-            status.innerHTML = "Thanks!";
-        }
-
-        function error() {
-            status.classList.add("error");
-            status.innerHTML = "Oops! There was a problem.";
-        }
-
-        // handle the form submission event
-
-        form.addEventListener("submit", function (ev) {
-            ev.preventDefault();
-            var data = new FormData(form);
-            ajax(form.method, form.action, data, success, error);
-        });
-    });
-
-    // helper function for sending an AJAX request
-
-    function ajax(method, url, data, success, error) {
-        var xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState !== XMLHttpRequest.DONE) return;
-            if (xhr.status === 200) {
-                success(xhr.response, xhr.responseType);
-            } else {
-                error(xhr.status, xhr.response, xhr.responseType);
-            }
-        };
-        xhr.send(data);
-    }
-
-/*
-    var form = document.getElementById("my-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("my-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        status.innerHTML = "Thanks for your submission!";
-        form.reset()
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-      });
-    }
-    form.addEventListener("submit", handleSubmit)
-    */
-</script>
 
 
     </body>
