@@ -3,6 +3,10 @@
   margin: 0px;
 }
 
+.link-decoration {
+  color: rgb(218, 214, 16);
+}
+
 @font-face {
   src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
     format("woff2");
@@ -43,7 +47,8 @@ ten {
   width: 10%;
   height: 10%;
 }
-/*numbers styling*/
+
+/*numbers styling
 .numbers_container {
   width: 90%;
   max-width: 450px;
@@ -93,7 +98,7 @@ button {
   font-size: 20px;
 }
 
-/*end of numbers styling  */
+end of numbers styling  */
 
 footer {
   height: 100vh;
